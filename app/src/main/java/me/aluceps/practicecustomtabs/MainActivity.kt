@@ -9,6 +9,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.browser.customtabs.CustomTabsService
+import com.google.android.material.snackbar.Snackbar
 import me.aluceps.practicecustomtabs.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                     launchCustomTabs(it, Uri.parse(url))
                 }
             } catch (e: Exception) {
-                Log.e(MainActivity::class.simpleName, "message: ${e.message}")
+                Snackbar.make(binding.snackbar, "${e.message}", Snackbar.LENGTH_LONG).show()
             }
         }
     }
